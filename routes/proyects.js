@@ -2,7 +2,7 @@
 
 var express = require('express');
 var ProyectController = require('../controllers/proyects');
-
+var correoController = require('../controllers/correoController')
 var router = express.Router();
 var multipart = require('connect-multiparty');
 var multipartMiddleware = multipart({ uploadDir: './uploads'});
@@ -16,4 +16,5 @@ router.put('/update/:id',ProyectController.updateProyect);
 router.delete('/delete/:id',ProyectController.deleteProyect);
 router.post('/upload-image/:id',multipartMiddleware, ProyectController.uploadImage);
 router.get('/get-image/:image',ProyectController.getImageFile);
+router.post('/envio',correoController.envioCorreo);
 module.exports = router;
