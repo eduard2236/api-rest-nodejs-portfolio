@@ -9,7 +9,7 @@ const envioCorreo = (req=request,resp=response) =>{
         post:587,
         auth:{
             user:'eduardprogra@gmail.com',
-            pass: 'bfschmpaulpxwvcg'
+            pass: 'aqui tu contraseña'
         }
     });
 
