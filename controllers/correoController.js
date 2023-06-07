@@ -1,5 +1,8 @@
 const {request, response} = require('express');
 const nodeMailer = require('nodemailer');
+require('dotenv').config({path: '../variables.env'});
+const apiPass =  process.env.apiPass;
+const apiUser = process.env.apiUser;
 
 const envioCorreo = (req=request,resp=response) =>{
     let body = req.body;
@@ -8,16 +11,16 @@ const envioCorreo = (req=request,resp=response) =>{
         host: 'smtp.gmail.com',
         post:587,
         auth:{
-            user:'eduardprogra@gmail.com',
-            pass: 'aqui tu contraseña'
+            user: apiUser,
+            pass: apiPass
         }
     });
-
     const opciones = {
-        from:'Programacion',
+        from:'ProgramacionPortfolio',
         subject:body.asunto,
-        to:body.email,
-        text:body.mensaje
+        to:'eduardcolmenares2236@gmail.com',
+        html:body.html
+        //name:body.name
     };
 
     config.sendMail(opciones,function(error,result){

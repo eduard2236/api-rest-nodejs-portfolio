@@ -27,5 +27,8 @@ app.use(cors());
 
 //rutas
 app.use('/api', proyect_routes);
+
+
 //exportar 
 module.exports = app;
+
